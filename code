@@ -1,6 +1,7 @@
 # Print list of new hires in following format:
-# Name: Title | Company | Location
-# Previously worked as TITLE at COMPANY. PREFERRED NAME will be reporting to MANAGER.
+# Brooke Ostendorf: VP of New Business | Growth - T3 | Remote
+# 	Previously worked as Director, Strategic Growth at Isobar. 
+# 	Brooke will be reporting to Joey Doney.
 
 # import packages
 from google.colab import files
