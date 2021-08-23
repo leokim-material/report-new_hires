@@ -1,0 +1,23 @@
+# Print list of new hires in following format:
+# Name: Title | Company | Location
+# Previously worked as TITLE at COMPANY. PREFERRED NAME will be reporting to MANAGER.
+
+# import packages
+from google.colab import files
+import pandas as pd
+import os
+from termcolor import colored #format font color
+
+# read files
+directory = 'drive/MyDrive/data/report-new hires'
+folder = os.listdir(directory)
+
+df = pd.read_excel(directory + '/' + 'offer_details_08-13-2021.xlsx', sheet_name='filtered')
+
+# iterate list of new hires and print out in intended formatting
+for candidate in range(df.shape[0]):
+  print('\033[1m' + df.iloc[candidate,0] + '\033[0m' + ': ' + df.iloc[candidate,2] + ' | ' + '\x1B[3m' + df.iloc[candidate,11] + ' | ' + df.iloc[candidate,10] + '\x1B[0m'
+        + '\n\tPreviously worked as ' + str(df.iloc[candidate,15]) + ' at ' + colored(df.iloc[candidate,16], 'blue') + '. '  
+        + '\n\t' + df.iloc[candidate,8] + ' will be reporting to ' + df.iloc[candidate,13] + '.'
+        + '\n'
+        )
